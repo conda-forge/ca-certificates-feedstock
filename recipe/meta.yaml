@@ -29,14 +29,20 @@ test:
 
   commands:
     # Verify the certificates are there.
-    - test -f "${PREFIX}/ssl/cacert.pem"                                      # [unix]
-    - test -f "${PREFIX}/ssl/cert.pem"                                        # [unix]
-    - if not exist %LIBRARY_PREFIX%\\ssl\\cacert.pem exit 1                   # [win]
-    - if not exist %LIBRARY_PREFIX%\\ssl\\cert.pem exit 1                     # [win]
+    - test -f "${PREFIX}/ssl/cacert.pem"                                                              # [unix]
+    - test -f "${PREFIX}/ssl/cert.pem"                                                                # [unix]
+    - if not exist %LIBRARY_PREFIX%\\ssl\\cacert.pem exit 1                                           # [win]
+    - if not exist %LIBRARY_PREFIX%\\ssl\\cert.pem exit 1                                             # [win]
+
+    # Verify the [de]activation scripts are there.
+    - test -f "${PREFIX}/etc/conda/activate.d/ca-certificates_activate.sh"                            # [unix]
+    - test -f "${PREFIX}/etc/conda/deactivate.d/ca-certificates_deactivate.sh"                        # [unix]
+    - if not exist %LIBRARY_PREFIX%\\etc\\conda\\activate.d\\ca-certificates_activate.bat exit 1      # [win]
+    - if not exist %LIBRARY_PREFIX%\\etc\\conda\\deactivate.d\\ca-certificates_deactivate.bat exit 1  # [win]
 
     # Use the certificates to download something.
-    - curl --cacert "${PREFIX}/ssl/cacert.pem" https://www.google.com         # [unix]
-    - curl --cacert %LIBRARY_PREFIX%\\ssl\\cacert.pem https://www.google.com  # [win]
+    - curl --cacert "${PREFIX}/ssl/cacert.pem" https://www.google.com                                 # [unix]
+    - curl --cacert %LIBRARY_PREFIX%\\ssl\\cacert.pem https://www.google.com                          # [win]
 
 about:
   home: https://github.com/conda-forge/ca-certificates-feedstock
