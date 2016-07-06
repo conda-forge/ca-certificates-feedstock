@@ -15,8 +15,14 @@ build:
   #
   # Note: The Windows copy of openssl does not include these.
   always_include_files:
-    - ssl/cert.pem      # [unix]
-    - ssl/cacert.pem    # [unix]
+    - ssl/cert.pem                                                       # [unix]
+    - ssl/cacert.pem                                                     # [unix]
+    - Library\\ssl\\cert.pem                                             # [win]
+    - Library\\ssl\\cacert.pem                                           # [win]
+    - etc/conda/activate.d/ca-certificates_activate.sh                   # [unix]
+    - etc/conda/deactivate.d/ca-certificates_deactivate.sh               # [unix]
+    - Library\\etc\\conda\\activate.d\\ca-certificates_activate.bat      # [win]
+    - Library\\etc\\conda\\deactivate.d\\ca-certificates_deactivate.bat  # [win]
 
 requirements:
   build:
