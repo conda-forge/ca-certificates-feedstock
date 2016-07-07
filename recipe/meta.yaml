@@ -21,8 +21,8 @@ build:
     - Library\\ssl\\cacert.pem                                           # [win]
     - etc/conda/activate.d/ca-certificates_activate.sh                   # [unix]
     - etc/conda/deactivate.d/ca-certificates_deactivate.sh               # [unix]
-    - Library\\etc\\conda\\activate.d\\ca-certificates_activate.bat      # [win]
-    - Library\\etc\\conda\\deactivate.d\\ca-certificates_deactivate.bat  # [win]
+    - etc\\conda\\activate.d\\ca-certificates_activate.bat               # [win]
+    - etc\\conda\\deactivate.d\\ca-certificates_deactivate.bat           # [win]
 
 requirements:
   build:
@@ -43,8 +43,8 @@ test:
     # Verify the [de]activation scripts are there.
     - test -f "${PREFIX}/etc/conda/activate.d/ca-certificates_activate.sh"                            # [unix]
     - test -f "${PREFIX}/etc/conda/deactivate.d/ca-certificates_deactivate.sh"                        # [unix]
-    - if not exist %LIBRARY_PREFIX%\\etc\\conda\\activate.d\\ca-certificates_activate.bat exit 1      # [win]
-    - if not exist %LIBRARY_PREFIX%\\etc\\conda\\deactivate.d\\ca-certificates_deactivate.bat exit 1  # [win]
+    - if not exist %PREFIX%\\etc\\conda\\activate.d\\ca-certificates_activate.bat exit 1              # [win]
+    - if not exist %PREFIX%\\etc\\conda\\deactivate.d\\ca-certificates_deactivate.bat exit 1          # [win]
 
     # Use the certificates to download something.
     - curl --cacert "${PREFIX}/ssl/cacert.pem" https://www.google.com                                 # [unix]
