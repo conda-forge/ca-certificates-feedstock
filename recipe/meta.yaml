@@ -7,7 +7,7 @@ package:
 # This does not have a source because it pulls these from certifi at present.
 
 build:
-  number: 2
+  number: 4
   skip: true  # [not py35]
   # As openssl includes these (dependency of Python), they will be removed afterwards.
   # This is our way of ensuring these files are kept anyways. Once conda-forge has its
