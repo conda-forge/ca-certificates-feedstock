@@ -7,7 +7,7 @@ package:
 # This does not have a source because it pulls these from certifi at present.
 
 build:
-  number: 3
+  number: 2
   skip: true  # [not py35]
   # As openssl includes these (dependency of Python), they will be removed afterwards.
   # This is our way of ensuring these files are kept anyways. Once conda-forge has its
@@ -15,10 +15,8 @@ build:
   #
   # Note: The Windows copy of openssl does not include these.
   always_include_files:
-    - ssl/cert.pem                # [unix]
-    - ssl/cacert.pem              # [unix]
-    - Library\\ssl\\cert.pem      # [win]
-    - Library\\ssl\\cacert.pem    # [win]
+    - ssl/cert.pem      # [unix]
+    - ssl/cacert.pem    # [unix]
 
 requirements:
   build:
