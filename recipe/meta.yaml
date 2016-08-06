@@ -7,7 +7,7 @@ package:
 # This does not have a source because it pulls these from certifi at present.
 
 build:
-  number: 3
+  number: 4
   skip: true  # [not py35]
   # As openssl includes these (dependency of Python), they will be removed afterwards.
   # This is our way of ensuring these files are kept anyways. Once conda-forge has its
@@ -15,10 +15,14 @@ build:
   #
   # Note: The Windows copy of openssl does not include these.
   always_include_files:
-    - ssl/cert.pem                # [unix]
-    - ssl/cacert.pem              # [unix]
-    - Library\\ssl\\cert.pem      # [win]
-    - Library\\ssl\\cacert.pem    # [win]
+    - ssl/cert.pem                                                       # [unix]
+    - ssl/cacert.pem                                                     # [unix]
+    - Library\\ssl\\cert.pem                                             # [win]
+    - Library\\ssl\\cacert.pem                                           # [win]
+    - etc/conda/activate.d/ca-certificates_activate.sh                   # [unix]
+    - etc/conda/deactivate.d/ca-certificates_deactivate.sh               # [unix]
+    - etc\\conda\\activate.d\\ca-certificates_activate.bat               # [win]
+    - etc\\conda\\deactivate.d\\ca-certificates_deactivate.bat           # [win]
 
 requirements:
   build:
@@ -31,14 +35,20 @@ test:
 
   commands:
     # Verify the certificates are there.
-    - test -f "${PREFIX}/ssl/cacert.pem"                                      # [unix]
-    - test -f "${PREFIX}/ssl/cert.pem"                                        # [unix]
-    - if not exist %LIBRARY_PREFIX%\\ssl\\cacert.pem exit 1                   # [win]
-    - if not exist %LIBRARY_PREFIX%\\ssl\\cert.pem exit 1                     # [win]
+    - test -f "${PREFIX}/ssl/cacert.pem"                                                              # [unix]
+    - test -f "${PREFIX}/ssl/cert.pem"                                                                # [unix]
+    - if not exist %LIBRARY_PREFIX%\\ssl\\cacert.pem exit 1                                           # [win]
+    - if not exist %LIBRARY_PREFIX%\\ssl\\cert.pem exit 1                                             # [win]
+
+    # Verify the [de]activation scripts are there.
+    - test -f "${PREFIX}/etc/conda/activate.d/ca-certificates_activate.sh"                            # [unix]
+    - test -f "${PREFIX}/etc/conda/deactivate.d/ca-certificates_deactivate.sh"                        # [unix]
+    - if not exist %PREFIX%\\etc\\conda\\activate.d\\ca-certificates_activate.bat exit 1              # [win]
+    - if not exist %PREFIX%\\etc\\conda\\deactivate.d\\ca-certificates_deactivate.bat exit 1          # [win]
 
     # Use the certificates to download something.
-    - curl --cacert "${PREFIX}/ssl/cacert.pem" https://www.google.com         # [unix]
-    - curl --cacert %LIBRARY_PREFIX%\\ssl\\cacert.pem https://www.google.com  # [win]
+    - curl --cacert "${PREFIX}/ssl/cacert.pem" https://www.google.com                                 # [unix]
+    - curl --cacert %LIBRARY_PREFIX%\\ssl\\cacert.pem https://www.google.com                          # [win]
 
 about:
   home: https://github.com/conda-forge/ca-certificates-feedstock
