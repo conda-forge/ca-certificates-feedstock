@@ -1,4 +1,4 @@
-{% set version = "2019.11.28" %}
+{% set version = "2020.4.5" %}
 
 package:
   name: ca-certificates
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/certifi/certifi-{{ version }}.tar.gz
-  sha256: 25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f
+  sha256: b0e07438175de96ab74de9ab5dc40985ef8b44a41e9636a2000099dc3b670ddd
 
 build:
   number: 0
@@ -34,11 +34,11 @@ about:
 
 extra:
   recipe-maintainers:
-     - jakirkham
-     - jjhelmus
-     - msarahan
-     - mwcraig
-     - ocefpaf
-     - patricksnape
-     - pelson
-     - scopatz
+    - jakirkham
+    - jjhelmus
+    - msarahan
+    - mwcraig
+    - ocefpaf
+    - patricksnape
+    - pelson
+    - scopatz
