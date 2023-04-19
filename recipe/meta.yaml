@@ -7,6 +7,7 @@ package:
 
 source:
   url: https://curl.se/ca/cacert-{{ reldate }}.pem
+  fn: cacert.pem
   sha256: fb1ecd641d0a02c01bc9036d513cb658bbda62a75e246bedbc01764560a639f0
 
 build:
