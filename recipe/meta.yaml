@@ -31,7 +31,7 @@ test:
 about:
   home: https://github.com/conda-forge/ca-certificates-feedstock
   license: ISC
-  license_file: COPYING
+  license_file: LICENSE.txt
   summary: Certificates for use with other packages.
 
 extra:
