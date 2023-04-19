@@ -1,11 +1,11 @@
-About ca-certificates
-=====================
+About ca-certificates-feedstock
+===============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ca-certificates-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/conda-forge/ca-certificates-feedstock
 
 Package license: ISC
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ca-certificates-feedstock/blob/main/LICENSE.txt)
 
 Summary: Certificates for use with other packages.
 
