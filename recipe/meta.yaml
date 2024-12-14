@@ -1,12 +1,12 @@
-{% set version = "2024.8.30" %}
+{% set version = "2024.12.14" %}
 
 package:
   name: ca-certificates
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/certifi/certifi-{{ version }}.tar.gz
-  sha256: bec941d2aa8195e248a60b31ff9f0558284cf01a52591ceda73ea9afffd69fd9
+  url: https://pypi.org/packages/source/c/certifi/certifi-{{ version }}.tar.gz
+  sha256: b650d30f370c2b724812bee08008be0c4163b163ddaec3f2546c1caf65f191db
 
 build:
   number: 0
