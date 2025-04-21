@@ -12,6 +12,11 @@ github:
   branch_name: main
   tooling_branch_name: main
 provider:
+  linux_64: default
   linux_aarch64: default
   linux_ppc64le: default
+  osx_64: default
+  osx_arm64: default
+  win_64: default
+  win_arm64: default
 test: native_and_emulated
