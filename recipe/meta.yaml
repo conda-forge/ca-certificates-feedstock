@@ -1,4 +1,4 @@
-{% set version = "2026.5.20" %}
+{% set version = "2026.6.17" %}
 
 package:
   name: ca-certificates
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/c/certifi/certifi-{{ version }}.tar.gz
-  sha256: 69dea482ab64caa7b9f6aba1c6bf48bb6a5448d1c0f1b17ab42ad8c763a5344d
+  sha256: 024c88eeec92ca068db80f02b8b07c9cef7b9fe261d1d535abfd5abd6f6af432
 
 build:
   number: 0
